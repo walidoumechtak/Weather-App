@@ -7,7 +7,31 @@
     <title>Weather App</title>
 </head>
 <body>
-    
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="main-show">
+            <div class="top">
+                <input type="text" placeholder="Enter your city">
+                <h1>Broken Clouds</h1>
+                <h4 id="location">Marrakech</h4>
+                <div id="time">
+                    Friday, 26th Jan 24
+                </div>
+                <div id="degree">
+                    <h2>17 °C</h2>
+                    <button type="submit">Display °F</button>
+                </div>
+            </div>
+            <!-- ================= -->
+            <div class="bottom">
+                <div class="feelsLike">Feels Like <div class="value"> 17 C</div></div>
+                <div class="humidity">Humidity <div class="value"> 68 %</div></div>
+                <div class="chanceOfRain">Chance of Rain<div class="value"> 8%</div></div>
+                <div class="windSpeed">Wind Speed <div class="value">11.1 km/h</div></div>
+            </div>
+        </div>
+        <div class="weahter-in-week"></div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
