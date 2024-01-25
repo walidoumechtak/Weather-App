@@ -24,7 +24,7 @@ body
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .container
@@ -42,12 +42,12 @@ body
 .container .main-show
 {
     width: 70%;
-    max-width: 700px;
+    max-width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 60vh;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .container .main-show .top
@@ -57,12 +57,17 @@ body
     flex-direction: column;
 }
 
+.container .main-show .top h1{
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
 .container .main-show .top input[type=text]
 {
     margin-bottom: 20px;
     border: none;
     outline: none;
-    padding: 10px 15px 5px 15px;
+    padding: 10px 15px 10px 15px;
     background: none;
     color: white;
     border-bottom: 2px solid white;
@@ -71,7 +76,7 @@ body
 
 .container .main-show .top input[type=text]::placeholder
 {
-    color: white;
+    color: rgb(149, 224, 240);
     font-size: 20px;
 }
 
@@ -90,9 +95,14 @@ body
 {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 100%;
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 20px;
     text-align: center;
+}
+
+.container .main-show .bottom > * {
+    margin-bottom: 25px;
 }
