@@ -29,4 +29,5 @@ This is a small weather app that provides current weather information based on u
 ## API Key
 To run this app, you need to sign up for a free API key from <a href="https://www.weatherapi.com/signup.aspx">Here</a> and replace the placeholder in the main.js file with your API key.
 
-```const apiKey = 'YOUR_API_KEY_HERE';
+```bash
+const apiKey = 'YOUR_API_KEY_HERE';
