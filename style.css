@@ -106,3 +106,14 @@ body
 .container .main-show .bottom > * {
     margin-bottom: 25px;
 }
+
+
+/* ============== error msg for invalid place ================== */
+
+.error-msg
+{
+    color: rgb(240, 66, 66);
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 10px;
+}

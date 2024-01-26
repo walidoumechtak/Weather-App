@@ -1,6 +1,31 @@
 // wheather api key: 90743435001043998ee145417242301
 // https://api.weatherapi.com/v1/current.json?key=11111111111111111&q=london
 const searchSubmit = document.querySelector("[name=city]");
+const changeTypeOfDegree = document.querySelector("#degree #changeTypeDegree");
+const errorMsg = document.querySelector(".error-msg");
+
+let controller = false; // flase it means that the value should be in C not in F.
+let eventListnerFunction;
+function changeTheDegree(temp_c, temp_f, tempElement, feelLikeEle, feelsLike_c, feelsLike_f)
+{
+    if (controller === false)
+        controller = true;
+    else
+        controller = false;
+    console.log("contorller: " + controller);
+    if (controller === false)
+    {
+        tempElement.textContent = temp_c + " °C";
+        feelLikeEle.textContent = feelsLike_c + " °C";
+        changeTypeOfDegree.textContent = "Display °F";
+    }
+    else
+    {
+        tempElement.textContent = temp_f + " °F";
+        feelLikeEle.textContent = feelsLike_f + " °F";
+        changeTypeOfDegree.textContent = "Display °C";
+    }
+}
 
 async function getData(city = "marrakech")
 {
@@ -19,12 +44,19 @@ searchSubmit.addEventListener('keydown', (e) => {
 
     if (e.key === 'Enter' || e.keyCode === 13)
     {
+        changeTypeOfDegree.removeEventListener('click', eventListnerFunction);
+        
         city = searchSubmit.value;
-        console.log(city);
+        //console.log(city);
         dataPromiss = getData(city);
+        //console.log("here is the searched object: " + dataPromiss);
         dataPromiss.then((data) => {
             buildComponent(data);
-        });
+        })
+        .catch(err => {
+            errorMsg.textContent = "Error: Invalid place";
+        })
+        searchSubmit.value = "";
     }
 })
 
@@ -32,6 +64,7 @@ searchSubmit.addEventListener('keydown', (e) => {
 dataPromiss.then((data) => {
     buildComponent(data);     
 });
+
 
 
 function buildComponent(data)
@@ -85,5 +118,12 @@ function buildComponent(data)
 
     const windDirElement = document.querySelector(".windDir .value");
     windDirElement.textContent = windDir;
+
+    // add an event listner to change the type of degree from C to F or the oposite.
+    
+    eventListnerFunction = () => {
+        changeTheDegree(temp_c, temp_f, tempElement, feelLikeEle, feelsLike_c, feelsLike_f);
+    }
+    changeTypeOfDegree.addEventListener('click', eventListnerFunction); 
     console.log(data);
 }
