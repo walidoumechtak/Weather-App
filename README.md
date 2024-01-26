@@ -14,7 +14,7 @@ This is a small weather app that provides current weather information based on u
 - JavaScript (Vanilla)
 
 ## How to Use
-e
+
 1. Clone the repository to your local machine:
 
    ```bash
@@ -26,7 +26,7 @@ e
 
 4. Press the "Enter" button in your keyboard to fetch and display the current weather information.
 
-API Key
+## API Key
 To run this app, you need to sign up for a free API key from <a href="https://www.weatherapi.com/signup.aspx">Here</a> and replace the placeholder in the main.js file with your API key.
 
-const apiKey = 'YOUR_API_KEY_HERE';
+```const apiKey = 'YOUR_API_KEY_HERE';
