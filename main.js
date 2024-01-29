@@ -1,8 +1,10 @@
-// wheather api key: 90743435001043998ee145417242301
 // https://api.weatherapi.com/v1/current.json?key=11111111111111111&q=london
+
+
 const searchSubmit = document.querySelector("[name=city]");
 const changeTypeOfDegree = document.querySelector("#degree #changeTypeDegree");
 const errorMsg = document.querySelector(".error-msg");
+const apiKey = "90743435001043998ee145417242301";
 
 let controller = false; // flase it means that the value should be in C not in F.
 let eventListnerFunction;
@@ -29,7 +31,7 @@ function changeTheDegree(temp_c, temp_f, tempElement, feelLikeEle, feelsLike_c, 
 
 async function getData(city = "marrakech")
 {
-    var data = await fetch(`https://api.weatherapi.com/v1/current.json?key=90743435001043998ee145417242301&q=${city}`).then(data => data.json());
+    var data = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`).then(data => data.json());
     var obj = {
         current: data.current,
         location: data.location
@@ -52,6 +54,7 @@ searchSubmit.addEventListener('keydown', (e) => {
         //console.log("here is the searched object: " + dataPromiss);
         dataPromiss.then((data) => {
             buildComponent(data);
+            errorMsg.textContent = "";
         })
         .catch(err => {
             errorMsg.textContent = "Error: Invalid place";
